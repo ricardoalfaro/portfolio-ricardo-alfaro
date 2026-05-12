@@ -5,8 +5,9 @@ Sitio estático personal para Ricardo Alfaro, enfocado en producto, estrategia y
 ## Estructura
 
 - `index.html`: contenido y estructura principal del sitio.
-- `styles.css`: estilos visuales, layout responsive y sistema gráfico.
-- `script.js`: animación ambiental del fondo.
+- `content.js`: textos, casos, artículos y datos editables del sitio.
+- `script.js`: render de secciones reutilizables y visual abstracto del fondo.
+- `styles.css`: estilos visuales, layout responsive y sistema gráfico editorial.
 
 ## Cómo verlo localmente
 
@@ -26,7 +27,7 @@ También se puede abrir `index.html` directamente en el navegador, pero usar un 
 
 ## Editar contenido
 
-Los textos principales están en `index.html`. Para actualizar el perfil, conviene reemplazar:
+Los textos principales están en `content.js`. Para actualizar el perfil, conviene reemplazar:
 
 - El texto principal del hero.
 - Los tres bloques de trabajo seleccionado.
