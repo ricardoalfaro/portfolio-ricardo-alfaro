@@ -1,5 +1,6 @@
 const content = window.siteContent;
 const root = document.querySelector("#page-sections");
+const heroProof = document.querySelector("#hero-proof");
 
 const escapeHtml = (value) =>
   String(value)
@@ -9,9 +10,16 @@ const escapeHtml = (value) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
-const renderFocusCard = (item, index) => `
-  <article class="focus-card">
+const renderCapability = (item, index) => `
+  <article class="capability-card">
     <span>${String(index + 1).padStart(2, "0")}</span>
+    <h3>${escapeHtml(item.title)}</h3>
+    <p>${escapeHtml(item.text)}</p>
+  </article>
+`;
+
+const renderExpertise = (item) => `
+  <article class="expertise-row">
     <h3>${escapeHtml(item.title)}</h3>
     <p>${escapeHtml(item.text)}</p>
   </article>
@@ -19,24 +27,38 @@ const renderFocusCard = (item, index) => `
 
 const renderCaseCard = (item, index) => `
   <article class="case-card">
-    <div class="case-art" aria-hidden="true">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="case-index">0${index + 1}</div>
     <div class="case-copy">
-      <div class="case-meta">
-        <span>0${index + 1}</span>
-        <span>Payments strategy</span>
-      </div>
+      <p class="case-context">${escapeHtml(item.context)}</p>
       <h3>${escapeHtml(item.title)}</h3>
-      <p>${escapeHtml(item.context)}</p>
-      <p>${escapeHtml(item.impact)}</p>
+      <dl>
+        <div>
+          <dt>Problema</dt>
+          <dd>${escapeHtml(item.problem)}</dd>
+        </div>
+        <div>
+          <dt>Rol</dt>
+          <dd>${escapeHtml(item.role)}</dd>
+        </div>
+        <div>
+          <dt>Que lidere</dt>
+          <dd>${escapeHtml(item.led)}</dd>
+        </div>
+        <div>
+          <dt>Impacto</dt>
+          <dd>${escapeHtml(item.impact)}</dd>
+        </div>
+      </dl>
     </div>
   </article>
 `;
 
 const renderIdea = (item) => `
-  <article class="idea-card">
-    <span>${escapeHtml(item.tag)}</span>
+  <article class="idea-card" data-tag="${escapeHtml(item.tag)}">
+    <div>
+      <span>${escapeHtml(item.tag)}</span>
+      <span>${escapeHtml(item.type)}</span>
+    </div>
     <h3>${escapeHtml(item.title)}</h3>
     <p>${escapeHtml(item.text)}</p>
   </article>
@@ -44,9 +66,10 @@ const renderIdea = (item) => `
 
 const renderContactLinks = () => {
   const links = [
-    { label: "Escríbeme", href: `mailto:${content.links.email}` },
     { label: "LinkedIn", href: content.links.linkedin },
-    { label: "Agenda", href: content.links.calendar },
+    { label: "Mail", href: `mailto:${content.links.email}` },
+    { label: "Substack", href: content.links.substack },
+    { label: "Medium", href: content.links.medium },
   ].filter((link) => link.href && link.href !== "#");
 
   return links
@@ -54,48 +77,50 @@ const renderContactLinks = () => {
     .join("");
 };
 
+function renderHero() {
+  document.querySelector("#hero-kicker").textContent = content.hero.kicker;
+  document.querySelector("#hero-title").textContent = content.hero.headline;
+  document.querySelector("#hero-subtitle").textContent = content.hero.subheadline;
+
+  heroProof.innerHTML = content.hero.proofPoints
+    .map((point) => `<li>${escapeHtml(point)}</li>`)
+    .join("");
+}
+
 function renderPage() {
   root.innerHTML = `
-    <section class="media-strip" aria-label="Temas de especialidad">
-      <div class="strip-card strip-green">
-        <span>Payments</span>
-        <strong>Adquirencia, PSP, PST, emisión, billeteras y pagos cuenta a cuenta.</strong>
-      </div>
-      <div class="strip-card strip-lime">
-        <span>Operations</span>
-        <strong>Recaudación, conciliación, tesorería y automatización financiera.</strong>
-      </div>
-      <div class="strip-card strip-blue">
-        <span>Open Finance</span>
-        <strong>APIs, consentimiento, iniciación de pagos y nuevos modelos de negocio.</strong>
+    <section class="section intro" id="about" aria-labelledby="about-title">
+      <div class="section-label">${escapeHtml(content.whatIDo.eyebrow)}</div>
+      <div class="intro-copy">
+        <h2 id="about-title">${escapeHtml(content.whatIDo.title)}</h2>
+        <p>${escapeHtml(content.whatIDo.text)}</p>
       </div>
     </section>
 
-    <section class="section why" id="about" aria-labelledby="about-title">
-      <div class="section-label">Why this matters</div>
-      <div>
-        <h2 id="about-title">Los pagos no terminan en el checkout.</h2>
-        <p>
-          Ahí empieza una cadena operacional que define cuánto dinero entra,
-          cuándo se reconoce, cómo se concilia y qué tan escalable es el negocio.
-        </p>
-      </div>
-    </section>
-
-    <section class="section focus" aria-labelledby="focus-title">
+    <section class="section capabilities" aria-labelledby="capabilities-title">
       <div class="section-heading">
-        <span>Services</span>
-        <h2 id="focus-title">Dónde puedo ayudar</h2>
+        <span>Capabilities</span>
+        <h2 id="capabilities-title">Donde puedo aportar criterio y ejecucion.</h2>
       </div>
-      <div class="focus-grid">
-        ${content.whatIDo.map(renderFocusCard).join("")}
+      <div class="capability-grid">
+        ${content.whatIDo.capabilities.map(renderCapability).join("")}
+      </div>
+    </section>
+
+    <section class="section expertise" aria-labelledby="expertise-title">
+      <div class="section-heading">
+        <span>Expertise</span>
+        <h2 id="expertise-title">Profundidad fintech aplicada a decisiones de producto.</h2>
+      </div>
+      <div class="expertise-list">
+        ${content.expertise.map(renderExpertise).join("")}
       </div>
     </section>
 
     <section class="section work" id="work" aria-labelledby="work-title">
       <div class="section-heading">
-        <span>Case studies</span>
-        <h2 id="work-title">Proyectos representativos</h2>
+        <span>Experiencia destacada</span>
+        <h2 id="work-title">Casos donde estrategia, producto y tecnologia se encuentran.</h2>
       </div>
       <div class="case-grid">
         ${content.cases.map(renderCaseCard).join("")}
@@ -104,17 +129,40 @@ function renderPage() {
 
     <section class="section ideas" id="ideas" aria-labelledby="ideas-title">
       <div class="section-heading">
-        <span>Writing</span>
-        <h2 id="ideas-title">Ideas sobre pagos e infraestructura financiera</h2>
+        <span>Thought leadership</span>
+        <h2 id="ideas-title">Pensamiento e investigacion sobre evolucion financiera digital.</h2>
+      </div>
+      <div class="filter-bar" aria-label="Filtrar publicaciones">
+        ${content.articleTags
+          .map(
+            (tag, index) =>
+              `<button class="filter-button${index === 0 ? " is-active" : ""}" type="button" data-filter="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`
+          )
+          .join("")}
       </div>
       <div class="ideas-grid">
-        ${content.articles.slice(0, 4).map(renderIdea).join("")}
+        ${content.articles.map(renderIdea).join("")}
+      </div>
+    </section>
+
+    <section class="manifesto" aria-labelledby="manifesto-title">
+      <span>Vision</span>
+      <h2 id="manifesto-title">${escapeHtml(content.manifesto.title)}</h2>
+      <p>${escapeHtml(content.manifesto.text)}</p>
+    </section>
+
+    <section class="section about" aria-labelledby="bio-title">
+      <div class="section-label">Sobre mi</div>
+      <div class="about-copy">
+        <h2 id="bio-title">${escapeHtml(content.about.title)}</h2>
+        <p>${escapeHtml(content.about.text)}</p>
+        <p>${escapeHtml(content.about.note)}</p>
       </div>
     </section>
 
     <section class="contact-section" id="contacto" aria-labelledby="contacto-title">
-      <p>Available for advisory, research, workshops and product strategy.</p>
-      <h2 id="contacto-title">Si estás trabajando en un desafío de pagos, conversemos.</h2>
+      <p>${escapeHtml(content.contact.text)}</p>
+      <h2 id="contacto-title">${escapeHtml(content.contact.title)}</h2>
       <div class="contact-actions">
         ${renderContactLinks()}
       </div>
@@ -122,4 +170,25 @@ function renderPage() {
   `;
 }
 
+function bindFilters() {
+  const buttons = document.querySelectorAll(".filter-button");
+  const cards = document.querySelectorAll(".idea-card");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+
+      buttons.forEach((item) => item.classList.remove("is-active"));
+      button.classList.add("is-active");
+
+      cards.forEach((card) => {
+        const shouldShow = filter === "Todos" || card.dataset.tag === filter;
+        card.hidden = !shouldShow;
+      });
+    });
+  });
+}
+
+renderHero();
 renderPage();
+bindFilters();

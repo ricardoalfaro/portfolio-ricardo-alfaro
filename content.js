@@ -1,171 +1,212 @@
 window.siteContent = {
-  whatIDo: [
-    {
-      title: "Pagos y recaudación",
-      text:
-        "Diseño modelos operativos, flujos de cobranza, integración de medios de pago, adquirencia, PSP, PST, conciliación y automatización de procesos financieros.",
-    },
-    {
-      title: "Fintech y Open Finance",
-      text:
-        "Analizo oportunidades estratégicas vinculadas a APIs financieras, iniciación de pagos, consentimiento, datos financieros y nuevos modelos de negocio.",
-    },
-    {
-      title: "Producto y experiencia",
-      text:
-        "Ayudo a definir propuestas de valor, journeys, MVPs, roadmaps y experiencias digitales para productos financieros complejos.",
-    },
-  ],
+  hero: {
+    kicker: "Ricardo Alfaro / Digital Product & Fintech Leader",
+    headline:
+      "Liderazgo de producto y estrategia fintech para la evolucion de servicios financieros digitales.",
+    subheadline:
+      "Conecto negocio, tecnologia y experiencia para construir soluciones con impacto real.",
+    proofPoints: [
+      "Product",
+      "Payments & wallets",
+      "Insurance",
+      "Fintech Strategy",
+    ],
+  },
+  whatIDo: {
+    eyebrow: "Que hago",
+    title: "Estrategia, producto y evolucion digital.",
+    text:
+      "He trabajado liderando iniciativas de producto y estrategia para bancos, adquirentes, procesadores, fintechs y aseguradoras, ayudando a disenar, evolucionar y conectar productos financieros digitales con necesidades reales de negocio y clientes. Mi experiencia combina estrategia de producto, research, UX, conocimiento profundo de la industria de pagos y capacidad de articulacion entre negocio y tecnologia.",
+    capabilities: [
+      {
+        title: "Product strategy",
+        text:
+          "Roadmaps, discovery, evolucion de productos digitales y definicion estrategica.",
+      },
+      {
+        title: "Payments & fintech",
+        text:
+          "Wallets, adquirencia, prepago, Open Finance y medios de pago digitales.",
+      },
+      {
+        title: "Product leadership",
+        text:
+          "Liderazgo interdisciplinario, coordinacion con desarrollo y gestion de stakeholders.",
+      },
+      {
+        title: "Research & insights",
+        text:
+          "Investigacion de mercado, tendencias y analisis estrategico de la industria financiera.",
+      },
+    ],
+  },
   expertise: [
     {
-      title: "Medios de pago digitales",
+      title: "Payments infrastructure",
       text:
-        "Adquirencia, emisión, prepago, billeteras digitales, pagos con tarjeta, transferencias, pagos cuenta a cuenta, PSP, PST, redes, modelos de cuatro partes, aceptación y experiencia de pago.",
+        "Adquirencia, redes, modelos de cuatro partes, PSP, PST, emision, aceptacion, prepago y pagos cuenta a cuenta.",
     },
     {
-      title: "Recaudación y conciliación",
+      title: "Digital wallets",
       text:
-        "Diagnóstico de procesos, automatización, conciliación bancaria, cash application, gestión de excepciones, integración con ERPs, tesorería automatizada, gobierno del proceso y mejora operacional.",
+        "Stored value, pass-through, experiencia transaccional, monetizacion, engagement y evolucion competitiva de billeteras.",
     },
     {
-      title: "Open Finance y APIs",
+      title: "Open Finance",
       text:
-        "Finanzas abiertas, iniciación de pagos, consentimiento, PSBI, PSIP, modelos de monetización, experiencia de autorización, integración vía APIs y oportunidades estratégicas para bancos, fintechs y empresas.",
+        "APIs financieras, consentimiento, iniciacion de pagos, datos, nuevos roles regulatorios y modelos de negocio.",
     },
     {
-      title: "Estrategia de producto financiero digital",
+      title: "Financial operations",
       text:
-        "Discovery, propuesta de valor, journeys, priorización, diseño de MVP, roadmap, modelos de negocio, benchmark competitivo y diseño de experiencias complejas.",
+        "Recaudacion, conciliacion, automatizacion, tesoreria, cash application, excepciones y gobierno operacional.",
     },
     {
-      title: "Thought leadership y formación",
+      title: "Product operating model",
       text:
-        "Artículos, charlas, talleres, estudios de industria, masterclasses y contenidos sobre pagos, billeteras digitales, fintech y modernización financiera.",
+        "Discovery, priorizacion, roadmaps, delivery, alineamiento ejecutivo y articulacion entre negocio, tecnologia y experiencia.",
     },
   ],
   cases: [
     {
-      title: "Plan Director de Recaudación para aseguradora",
-      context: "Modernización del proceso de cobranza por descuento por planilla.",
-      challenge:
-        "Ordenar un proceso crítico, fragmentado y altamente manual, con múltiples áreas, sistemas y excepciones operativas.",
-      work:
-        "Levantamiento de procesos, entrevistas, sistematización de hallazgos, diseño de iniciativas priorizadas y roadmap de implementación.",
+      title: "Webpay / Transbank",
+      context:
+        "Estrategia para la evolucion competitiva de Webpay en el contexto del modelo de cuatro partes.",
+      problem:
+        "Definir como sostener relevancia y diferenciacion en un mercado de pagos mas abierto, competitivo y regulado.",
+      role:
+        "Liderazgo de producto y estrategia, conectando lectura de mercado, experiencia de usuario y definicion de evolucion.",
+      led:
+        "Analisis competitivo, framing estrategico, priorizacion de oportunidades y narrativa de producto para evolucion de plataforma.",
       impact:
-        "Permitió pasar de dolores operativos dispersos a una agenda estructurada de modernización, con foco en conciliación, relación con empresas y autogestión.",
+        "Mayor claridad sobre posicionamiento, capacidades diferenciales y rutas de evolucion del principal producto digital de pago.",
     },
     {
-      title: "Estudio de Billeteras Digitales en Chile",
+      title: "Concarnet + Getnet",
       context:
-        "Investigación sobre oferta, demanda, modelos operativos y evolución estratégica de billeteras digitales.",
-      challenge:
-        "Entender cómo compiten las billeteras en un mercado donde muchas funcionalidades ya se volvieron estándar.",
-      work:
-        "Análisis de mercado, marco estratégico, lectura de modelos operativos, demanda usuaria y oportunidades de diferenciación.",
+        "Liderazgo de integracion de solucion de pagos sobre red POS nacional.",
+      problem:
+        "Coordinar una solucion compleja entre capacidades tecnologicas, operacion transaccional, negocio y adopcion comercial.",
+      role:
+        "Product leadership sobre definicion, coordinacion e implementacion de la solucion.",
+      led:
+        "Alineamiento de stakeholders, definicion funcional, trabajo con equipos tecnicos y seguimiento de entregables criticos.",
       impact:
-        "El estudio ayudó a instalar una mirada más madura sobre stored value, pass-through, monetización, uso de datos y evolución competitiva.",
+        "Habilitacion de una solucion de pagos integrada a infraestructura nacional con foco en ejecucion y escalabilidad.",
     },
     {
-      title: "Talleres y formación en medios de pago",
+      title: "TBK Developers",
       context:
-        "Diseño y facilitación de contenidos para explicar el ecosistema de pagos digitales a audiencias ejecutivas, emprendedores y equipos de producto.",
-      challenge:
-        "Hacer comprensible un sistema complejo: adquirencia, emisión, aceptación, transferencias, billeteras, PSP, PST y modelos de negocio.",
-      work:
-        "Diseño de narrativa, materiales, frameworks, ejemplos prácticos y sesiones formativas.",
+        "Rediseno y evolucion de experiencia para integradores y desarrolladores.",
+      problem:
+        "Reducir friccion tecnica y mejorar la experiencia de adopcion para comercios, integradores y equipos de desarrollo.",
+      role:
+        "Direccion de producto y experiencia para plataforma developer-oriented.",
+      led:
+        "Discovery, arquitectura de informacion, experiencia de integracion, priorizacion y trabajo con equipos de diseno y tecnologia.",
       impact:
-        "Permitió traducir infraestructura financiera en decisiones más claras para equipos no necesariamente expertos en pagos.",
+        "Una experiencia mas clara para integradores, con mejor soporte a documentacion, onboarding y autoservicio tecnico.",
     },
     {
-      title: "Estrategia de contenidos sobre payments y fintech",
+      title: "Estudio Billeteras Digitales",
       context:
-        "Desarrollo de artículos, análisis y marcos conceptuales sobre pagos digitales, Open Finance, conciliación, automatización y modernización operacional.",
-      challenge:
-        "Construir pensamiento propio en un mercado donde abundan las noticias, pero falta interpretación estratégica.",
-      work:
-        "Investigación, escritura, análisis de tendencias y construcción de tesis aplicables a negocio.",
+        "Investigacion estrategica sobre la evolucion del mercado wallet en Chile.",
+      problem:
+        "Entender como compiten las billeteras cuando muchas funcionalidades pasan de diferenciadoras a expectativas minimas.",
+      role:
+        "Investigacion, analisis de mercado y construccion de tesis estrategica.",
+      led:
+        "Benchmark competitivo, lectura de modelos operativos, analisis de demanda usuaria y oportunidades de diferenciacion.",
       impact:
-        "Generó una línea editorial especializada para abrir conversaciones de mayor valor con empresas del ecosistema financiero.",
+        "Instalo una mirada mas madura sobre stored value, pass-through, monetizacion, datos y evolucion competitiva.",
+    },
+    {
+      title: "Mutual de Seguros",
+      context:
+        "Plan Director para modernizacion de recaudacion y conciliacion.",
+      problem:
+        "Ordenar un proceso critico, fragmentado y manual, con multiples areas, sistemas y excepciones operativas.",
+      role:
+        "Consultoria estrategica, research operacional y diseno de roadmap.",
+      led:
+        "Levantamiento de procesos, entrevistas, sistematizacion de hallazgos, diseno de iniciativas y priorizacion ejecutiva.",
+      impact:
+        "Paso de dolores dispersos a una agenda estructurada de modernizacion con foco en conciliacion, autogestion y control.",
     },
   ],
   articles: [
     {
       title: "Los pagos no terminan en el checkout",
       tag: "Payments",
+      type: "Articulo",
       text:
-        "Por qué la verdadera complejidad aparece después de que el cliente paga: conciliación, caja, reconocimiento, excepciones y operación.",
+        "Por que la verdadera complejidad aparece despues de que el cliente paga: conciliacion, caja, reconocimiento, excepciones y operacion.",
     },
     {
-      title: "La paradoja de las transferencias en Chile",
-      tag: "Operación",
-      text: "Cuando los incentivos pesan más que la experiencia de usuario.",
-    },
-    {
-      title: "Automatizar un proceso mal diseñado no lo corrige",
-      tag: "Conciliación",
+      title: "Billeteras digitales: de la innovacion al estandar",
+      tag: "Wallets",
+      type: "Investigacion",
       text:
-        "Antes de incorporar tecnología, las empresas deben mirar cómo está diseñado el proceso que quieren automatizar.",
-    },
-    {
-      title: "Billeteras digitales: de la innovación al estándar",
-      tag: "Billeteras",
-      text:
-        "Qué ocurre cuando las funcionalidades que antes diferenciaban a una wallet pasan a ser expectativas mínimas del mercado.",
+        "Que ocurre cuando las funcionalidades que antes diferenciaban a una wallet pasan a ser expectativas minimas del mercado.",
     },
     {
       title: "Open Finance y consentimiento",
       tag: "Open Finance",
+      type: "Analisis",
       text:
-        "El desafío no es solo abrir APIs, sino diseñar experiencias de autorización que generen confianza y no destruyan conversión.",
+        "El desafio no es solo abrir APIs, sino disenar experiencias de autorizacion que generen confianza y no destruyan conversion.",
     },
     {
-      title: "Pagos cuenta a cuenta: el próximo campo competitivo",
-      tag: "Producto",
+      title: "Pagos cuenta a cuenta: el proximo campo competitivo",
+      tag: "Payments",
+      type: "Tesis",
       text:
-        "Cómo la modernización de rieles, APIs e iniciadores de pago puede cambiar la competencia contra tarjetas.",
+        "Como la modernizacion de rieles, APIs e iniciadores de pago puede cambiar la competencia contra tarjetas.",
+    },
+    {
+      title: "Automatizar un proceso mal disenado no lo corrige",
+      tag: "Product Strategy",
+      type: "Articulo",
+      text:
+        "Antes de incorporar tecnologia, las empresas deben mirar como esta disenado el proceso que quieren automatizar.",
+    },
+    {
+      title: "AI & Product: criterio antes que automatizacion",
+      tag: "AI & Product",
+      type: "Nota",
+      text:
+        "La IA puede acelerar discovery, analisis y operacion, pero no reemplaza claridad estrategica ni juicio de producto.",
     },
   ],
-  articleTags: ["Payments", "Open Finance", "Conciliación", "Billeteras", "Producto", "Operación"],
-  learningFormats: [
-    "Charlas ejecutivas sobre medios de pago",
-    "Talleres para emprendedores",
-    "Masterclasses sobre billeteras digitales y prepago",
-    "Workshops de Open Finance y modelos de negocio",
-    "Sesiones de alineamiento estratégico para equipos de producto, tecnología y negocio",
+  articleTags: [
+    "Todos",
+    "Payments",
+    "Open Finance",
+    "Wallets",
+    "Product Strategy",
+    "AI & Product",
   ],
-  collaboration: [
-    {
-      title: "Diagnóstico estratégico de pagos y recaudación",
-      text:
-        "Para empresas que necesitan entender cómo están cobrando, pagando, conciliando o integrando medios de pago, y dónde están las principales oportunidades de mejora.",
-    },
-    {
-      title: "Diseño de modelos operativos y roadmap",
-      text:
-        "Para transformar procesos complejos en iniciativas concretas, priorizadas y accionables.",
-    },
-    {
-      title: "Estrategia de producto financiero digital",
-      text:
-        "Para diseñar o mejorar billeteras, productos de pago, experiencias de recaudo, iniciación de pagos o soluciones fintech.",
-    },
-    {
-      title: "Contenido, investigación y formación",
-      text:
-        "Para estudios, charlas, workshops, benchmark de mercado y contenidos especializados.",
-    },
-  ],
-  contactTopics: [
-    "Modernización de procesos de recaudación",
-    "Estrategia de medios de pago",
-    "Automatización de conciliación",
-    "Diseño de billeteras o productos fintech",
-    "Open Finance e iniciación de pagos",
-    "Estudios, charlas o contenidos especializados",
-  ],
+  manifesto: {
+    title: "Los productos financieros digitales ya no compiten solo por funcionalidades.",
+    text:
+      "Compiten por experiencia, integracion, inteligencia y capacidad de adaptarse rapidamente a nuevas dinamicas tecnologicas y regulatorias. El futuro de los pagos, wallets y servicios financieros digitales requerira conectar estrategia, tecnologia y experiencia de usuario de forma mucho mas integrada.",
+  },
+  about: {
+    title: "Producto, UX, tecnologia y estrategia fintech.",
+    text:
+      "Mi trayectoria combina producto, UX, tecnologia y estrategia fintech. Durante mas de una decada he trabajado ayudando a organizaciones a disenar y evolucionar productos digitales complejos, especialmente en el ecosistema financiero y de pagos.",
+    note:
+      "Me interesa especialmente como tecnologias emergentes como IA y Open Finance estan transformando la manera en que construimos y operamos productos digitales.",
+  },
+  contact: {
+    title: "Conversemos.",
+    text:
+      "Disponible para liderazgo de producto, consultoria estrategica, advisory, investigacion y speaking.",
+  },
   links: {
     email: "hello@ricardoalfaro.dev",
     linkedin: "https://cl.linkedin.com/in/ricardoalfarog",
-    calendar: "#",
+    substack: "#",
+    medium: "#",
   },
 };
