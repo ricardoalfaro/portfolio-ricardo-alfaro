@@ -1,62 +1,257 @@
-<!doctype html>
-<html lang="es-419">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ricardo Alfaro G. | Digital Product & Payments Strategist</title>
-    <meta
-      name="description"
-      content="Lider de producto digital con expertise en pagos, seguros y servicios financieros."
-    />
-    <meta name="author" content="Ricardo Alfaro G." />
-    <meta property="og:title" content="Ricardo Alfaro G. | Digital Product & Payments Strategist" />
-    <meta
-      property="og:description"
-      content="Producto digital, payments, seguros, fintech y Open Finance en Chile y Latam."
-    />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Saltar al contenido</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ricardo Alfaro — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f14;
+    --accent: #1a1a2e;
+    --mid: #444455;
+    --light: #888899;
+    --rule: #dddde8;
+    --bg: #f9f9fb;
+    --white: #ffffff;
+    --tag-bg: #eeeef4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--ink); font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 860px; margin: 40px auto; background: var(--white); box-shadow: 0 4px 40px rgba(0,0,0,0.08); padding: 64px 72px; }
 
-    <main class="temporary-landing" id="main">
-      <section class="landing-shell" aria-labelledby="landing-title">
-        <header class="landing-header">
-          <div>
-            <h1 id="landing-title">RICARDO ALFARO G.</h1>
-            <p>Digital Product &amp; Payments Strategist</p>
-          </div>
-        </header>
+  /* HEADER */
+  .header { padding-bottom: 28px; margin-bottom: 36px; }
+  .name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 58px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+  .subtitle { font-family: 'Barlow Condensed', sans-serif; font-weight: 300; font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 20px; }
+  .contact { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 12.5px; color: var(--light); }
+  .contact span::before { content: "·"; margin-right: 20px; color: var(--rule); }
+  .contact span:first-child::before { display: none; }
 
-        <div class="landing-copy">
-          <p>Líder de producto digital con expertise en pagos, seguros y servicios financieros.</p>
+  /* SECTIONS */
+  .section { margin-bottom: 40px; }
 
-          <p>
-            He liderado equipos y proyectos end-to-end de alta complejidad desde la estrategia al
-            go-to-market, para emisores, adquirentes, procesadores, fintechs y aseguradoras con
-            presencia en Chile y Latam.
-          </p>
+  /* PROFILE */
+  .section-title-static { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+  .profile p { color: var(--mid); font-weight: 300; font-size: 14.5px; line-height: 1.7; margin-bottom: 10px; }
+  .profile p:last-child { margin-bottom: 0; }
 
-          <p>
-            Combino visión de negocio, entendimiento profundo de la industria, capacidad de
-            ejecución y coordinación con stakeholders para conectar producto, tecnología y
-            experiencia en soluciones con impacto real, foco operacional y orientación a métricas.
-          </p>
+  /* ACCORDION */
+  .accordion-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; padding-bottom: 8px; border-bottom: 1px solid var(--rule); margin-bottom: 0; }
+  .accordion-header:hover .accordion-title { color: var(--ink); }
+  .accordion-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); transition: color 0.2s; }
+  .accordion-icon { width: 16px; height: 16px; position: relative; flex-shrink: 0; }
+  .accordion-icon::before, .accordion-icon::after { content: ''; position: absolute; background: var(--accent); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .accordion-icon::before { width: 10px; height: 1.5px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .accordion-icon::after { width: 1.5px; height: 10px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .accordion-header.open .accordion-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+  .accordion-body { overflow: hidden; max-height: 0; transition: max-height 0.4s ease, padding 0.3s ease; padding-top: 0; }
+  .accordion-body.open { max-height: 6000px; padding-top: 20px; }
 
-          <p>
-            Además, investigo y escribo activamente sobre la evolución de los medios de pago,
-            billeteras digitales y Open Finance.
-          </p>
+  /* EMPLOYER */
+  .employer-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 20px; display: flex; align-items: baseline; gap: 10px; }
+  .employer-name span { font-weight: 300; font-size: 13px; color: var(--light); letter-spacing: 0; }
+
+  /* ROLE */
+  .role { margin-bottom: 28px; padding-left: 16px; border-left: 2px solid var(--rule); }
+  .role:last-child { margin-bottom: 0; }
+  .role-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 3px; }
+  .role-meta { font-size: 12px; color: var(--light); margin-bottom: 8px; display: flex; gap: 12px; }
+  .role-meta span + span::before { content: "·"; margin-right: 12px; color: var(--rule); }
+  .role-desc { color: var(--mid); font-size: 13.5px; font-weight: 300; margin-bottom: 10px; line-height: 1.65; }
+  .bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .bullets li { font-size: 13px; color: var(--mid); font-weight: 300; padding-left: 18px; position: relative; line-height: 1.6; }
+  .bullets li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 2px; }
+
+  /* ACTIVITY */
+  .activity-list { display: flex; flex-direction: column; gap: 8px; }
+  .activity-item { display: flex; gap: 12px; font-size: 13px; line-height: 1.5; }
+  .activity-item::before { content: "→"; color: var(--accent); font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+  .activity-label { font-weight: 500; color: var(--ink); margin-right: 6px; }
+  .activity-detail { color: var(--light); font-weight: 300; }
+
+  /* EDU */
+  .edu-item { margin-bottom: 14px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-title { font-weight: 500; color: var(--ink); font-size: 13.5px; margin-bottom: 2px; }
+  .edu-meta { font-size: 12px; color: var(--light); font-weight: 300; }
+
+  /* SKILLS */
+  .skill-row { display: flex; gap: 12px; margin-bottom: 10px; align-items: baseline; font-size: 13px; }
+  .skill-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); min-width: 100px; flex-shrink: 0; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { background: var(--tag-bg); color: var(--mid); font-size: 11.5px; font-weight: 400; padding: 3px 9px; border-radius: 2px; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; padding: 48px 56px; }
+    .accordion-body { max-height: none !important; padding-top: 20px !important; }
+    .accordion-icon { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <div>
+        <div class="name">Ricardo Alfaro</div>
+        <div class="subtitle">Digital Product &amp; Payments Strategist</div>
+      </div>
+      <div style="padding-top: 6px;">
+        <a href="https://linkedin.com/in/ricardoalfarog" style="font-size: 12.5px; color: var(--light); text-decoration: none; font-family: 'Barlow', sans-serif;">linkedin.com/in/ricardoalfarog</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PERFIL (estático) -->
+  <section class="section profile">
+    <p>Líder de producto digital con expertise en pagos, seguros y servicios financieros. He liderado equipos y proyectos de alta complejidad desde la estrategia al go-to-market, para emisores, adquirentes, procesadores, fintechs y aseguradoras con presencia en Chile y Latam.</p>
+    <p>Combino visión de negocio, conocimiento técnico de la industria y capacidad de ejecución para conectar producto, tecnología y experiencia de cliente en soluciones con impacto real.</p>
+    <p>Además, investigo y escribo activamente sobre la evolución de los medios de pago, billeteras digitales y Open Finance.</p>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section class="section">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Experiencia</span>
+      <span class="accordion-icon"></span>
+    </div>
+    <div class="accordion-body">
+
+      <div class="employer-name">Continuum HQ <span>10 años</span></div>
+
+      <div class="role">
+        <div class="role-title">Payments Strategy &amp; Product Lead</div>
+        <div class="role-meta"><span>ene. 2023 — actualidad</span><span>Santiago · Remoto</span></div>
+        <p class="role-desc">Liderazgo de proyectos de investigación estratégica y consultoría de producto para empresas del ecosistema de pagos y servicios financieros en Chile y Latinoamérica.</p>
+        <ul class="bullets">
+          <li>Lideré el equipo de integración de ConCarnet by Conectados con los POS de Getnet, coordinando un equipo de desarrollo, UX y QA hasta el go-to-market.</li>
+          <li>Consultoría estratégica para defender la posición de la pasarela Webpay en un mercado competitivo y modelo de cuatro partes.</li>
+          <li>Investigación de mercado regional en medios de pago para empresa internacional de procesamiento, con entrevistas a actores clave y autoridades regulatorias.</li>
+          <li>Plan Director para mejorar el proceso de recaudación por descuento por planilla de una aseguradora chilena.</li>
+          <li>Estrategia de pagos para optimizar los procesos de recaudación y desembolso de una fintech de inclusión financiera.</li>
+          <li>Dos ediciones del Estudio de Billeteras Digitales en Chile — seguimiento longitudinal del mercado y viabilidad comercial del prepago.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-title">Product Lead — Payments / Insurance</div>
+        <div class="role-meta"><span>dic. 2020 — dic. 2022</span><span>Santiago · Remoto</span></div>
+        <p class="role-desc">Liderazgo de equipos de producto en proyectos de alta complejidad para clientes del sector financiero e institucional.</p>
+        <ul class="bullets">
+          <li>Lideré el diseño y desarrollo del portal del cliente del BID (Banco Interamericano de Desarrollo), coordinando un equipo mixto entre Continuum y NTT Data y gestionando múltiples stakeholders dentro del banco. El profundo conocimiento del negocio adquirido me permitió convertirme en referente interno del proyecto.</li>
+          <li>Lideré consultorías para FID Seguros: rediseño del proceso de siniestros vehiculares y diseño del portal del cliente adaptado a tecnología low-code, desde el prototipado hasta la documentación de traspaso a desarrollo.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-title">Product Designer Lead</div>
+        <div class="role-meta"><span>ene. 2018 — nov. 2020</span><span>Santiago · Remoto</span></div>
+        <p class="role-desc">Liderazgo de equipos de diseño y consultoría de producto para empresas del ecosistema financiero.</p>
+        <ul class="bullets">
+          <li>Lideré el rediseño y evolución del portal TBK Developers, coordinando el equipo de diseño y co-liderando con un líder técnico el equipo de desarrollo de herramientas para integradores de e-commerce y POS.</li>
+          <li>Consultoría estratégica sobre oportunidades de mejora en el flujo de checkout de Webpay.</li>
+          <li>Consultoría de benchmarking internacional para definir el futuro del producto Webpay frente a la apertura competitiva del modelo de cuatro partes.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-title">Product Designer</div>
+        <div class="role-meta"><span>ene. 2016 — dic. 2017</span><span>Santiago</span></div>
+        <p class="role-desc">Consultoría de diseño de experiencia con creciente foco en el ecosistema financiero. Clientes incluyeron Tenpo (etapa previa a su lanzamiento) y startups de apps móviles y SaaS. En este período consolidé mi presencia como referente del medio a través de charlas, clases y conferencias como 9punto5 y Starsconf.</p>
+      </div>
+
+      <div class="role" style="margin-top: 12px;">
+        <div class="role-title">UX &amp; Product Designer</div>
+        <div class="role-meta"><span>Diversos roles y empresas</span><span>2006 — 2015</span></div>
+        <p class="role-desc">Diseño de experiencia, interfaces y desarrollo frontend para empresas de distintos rubros. Clientes incluyeron BCI, Falabella, Caja Los Andes, ACHS, Copec, MetLife y Great Place to Work, entre otros.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACTIVIDAD DE INDUSTRIA -->
+  <section class="section">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Actividad de Industria</span>
+      <span class="accordion-icon"></span>
+    </div>
+    <div class="accordion-body">
+      <div class="activity-list">
+        <div class="activity-item"><span><span class="activity-label">Profesor — Prepago y Billeteras Digitales</span><span class="activity-detail">10PAY · 2025 — actualidad</span></span></div>
+        <div class="activity-item"><span><span class="activity-label">Miembro Mesa de Finanzas Abiertas</span><span class="activity-detail">ChilePay · 2024 — actualidad</span></span></div>
+        <div class="activity-item"><span><span class="activity-label">Tallerista — Medios de Pago para Emprendedores</span><span class="activity-detail">ETMDay 2025</span></span></div>
+        <div class="activity-item"><span><span class="activity-label">Co-autor — Estudio de Billeteras Digitales en Chile</span><span class="activity-detail">Continuum · 2023 y 2024</span></span></div>
+        <div class="activity-item"><span><span class="activity-label">Podcast D/Coding</span><span class="activity-detail">Episodios sobre billeteras digitales · 2024-2025</span></span></div>
+        <div class="activity-item"><span><span class="activity-label">Autor de artículos sobre payments</span><span class="activity-detail">Continuum Blog · UX Collective · Finance as a Blog (Substack)</span></span></div>
+        <div class="activity-item"><span><span class="activity-label">Glosario de Pagos</span><span class="activity-detail">Publicación propia · 2020</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCACIÓN -->
+  <section class="section">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Educación</span>
+      <span class="accordion-icon"></span>
+    </div>
+    <div class="accordion-body">
+      <div class="edu-item">
+        <div class="edu-title">Diplomado en Diseño de Servicio y Experiencia del Cliente</div>
+        <div class="edu-meta">Pontificia Universidad Católica de Chile · 2023</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-title">Licenciatura en Diseño</div>
+        <div class="edu-meta">Universidad de Playa Ancha · 1999 — 2004</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS DE EXPERIENCIA -->
+  <section class="section">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="accordion-title">Áreas de Experiencia</span>
+      <span class="accordion-icon"></span>
+    </div>
+    <div class="accordion-body">
+      <div class="skill-row">
+        <div class="skill-label">Dominio</div>
+        <div class="skill-tags">
+          <span class="tag">Medios de pago</span><span class="tag">Billeteras digitales</span><span class="tag">Open Finance</span><span class="tag">Emisión prepago</span><span class="tag">Adquirencia</span><span class="tag">Pasarelas de pago</span><span class="tag">Procesamiento</span><span class="tag">Regulación financiera</span>
         </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Producto</div>
+        <div class="skill-tags">
+          <span class="tag">Estrategia de producto</span><span class="tag">Discovery &amp; Research</span><span class="tag">Roadmap &amp; OKRs</span><span class="tag">Go-to-Market</span><span class="tag">Stakeholder Management</span><span class="tag">Metodologías ágiles</span><span class="tag">IA aplicada a producto</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Diseño</div>
+        <div class="skill-tags">
+          <span class="tag">UX</span><span class="tag">Service Design</span><span class="tag">Prototipado</span><span class="tag">Figma</span><span class="tag">Miro</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Idiomas</div>
+        <div class="skill-tags">
+          <span class="tag">Español (nativo)</span><span class="tag">Inglés (intermedio-avanzado)</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <a class="button button-light landing-cta" href="https://cl.linkedin.com/in/ricardoalfarog">
-          Conectar
-        </a>
-      </section>
-    </main>
-  </body>
+</div>
+
+<script>
+function toggleAccordion(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+</script>
+</body>
 </html>
