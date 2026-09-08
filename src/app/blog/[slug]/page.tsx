@@ -58,7 +58,7 @@ export default async function BlogPostPage({
         </div>
         <h1>{post.title}</h1>
       </div>
-      <div className="post-body prose prose-lg max-w-none prose-headings:font-[var(--font-geist-sans)]">
+      <div className="post-body prose prose-lg max-w-none prose-headings:font-[var(--font-barlow-condensed)]">
         <MDXRemote source={post.content} />
       </div>
     </article>

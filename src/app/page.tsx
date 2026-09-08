@@ -1,26 +1,20 @@
 import Hero from "@/components/sections/Hero";
-import Intro from "@/components/sections/Intro";
+import About from "@/components/sections/About";
 import Capabilities from "@/components/sections/Capabilities";
-import Expertise from "@/components/sections/Expertise";
-import Work from "@/components/sections/Work";
+import CasesTeaser from "@/components/sections/CasesTeaser";
 import IdeasTeaser from "@/components/sections/IdeasTeaser";
 import Manifesto from "@/components/sections/Manifesto";
-import About from "@/components/sections/About";
-import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <div id="page-sections">
-        <Intro />
+        <About />
         <Capabilities />
-        <Expertise />
-        <Work />
+        <CasesTeaser />
         <IdeasTeaser />
         <Manifesto />
-        <About />
-        <Contact />
       </div>
     </>
   );

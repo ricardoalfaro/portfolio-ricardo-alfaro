@@ -2,16 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { siteContent } from "@/lib/content";
 
 const NAV_LINKS = [
   { href: "/#about", label: "Qué hago" },
-  { href: "/#work", label: "Casos" },
+  { href: "/casos", label: "Casos" },
   { href: "/blog", label: "Blog" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+  const contactHref = `mailto:${siteContent.links.email}`;
 
   return (
     <header className="site-header">
@@ -26,10 +28,10 @@ export default function Header() {
         ))}
       </nav>
       <div className="header-actions">
-        <Link className="nav-cta" href="/#contacto">
+        <a className="nav-cta" href={contactHref}>
           <span>Contacto</span>
           <span aria-hidden="true">↗</span>
-        </Link>
+        </a>
         <button
           type="button"
           className="menu-toggle"
@@ -49,9 +51,9 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/#contacto" onClick={close} className="mobile-menu-cta">
+          <a href={contactHref} onClick={close} className="mobile-menu-cta">
             Contacto
-          </Link>
+          </a>
         </nav>
       )}
     </header>

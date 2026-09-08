@@ -2,16 +2,16 @@ import { siteContent } from "@/lib/content";
 import SplitHeading from "@/components/SplitHeading";
 
 export default function Capabilities() {
-  const { capabilities } = siteContent.whatIDo;
+  const { capabilities } = siteContent;
 
   return (
-    <section className="section capabilities" aria-labelledby="capabilities-title">
+    <section className="section capabilities" id="capacidades" aria-labelledby="capabilities-title">
       <div className="section-heading">
-        <span>Capabilities</span>
-        <SplitHeading id="capabilities-title" lead="Dónde puedo aportar" strong="criterio y ejecución." />
+        <span>{capabilities.eyebrow}</span>
+        <SplitHeading id="capabilities-title" lead={capabilities.title.lead} strong={capabilities.title.strong} />
       </div>
       <div className="capability-grid">
-        {capabilities.map((item, index) => (
+        {capabilities.items.map((item, index) => (
           <article className="capability-card" key={item.title}>
             <span>{String(index + 1).padStart(2, "0")}</span>
             <h3>{item.title}</h3>
