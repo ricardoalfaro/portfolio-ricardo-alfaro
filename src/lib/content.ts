@@ -26,12 +26,8 @@ export const siteContent = {
     },
     items: [
       {
-        title: "Pagos & billeteras digitales",
-        text: "Medios de pago, wallets, prepago, adquirencia, pasarelas y procesamiento — de la estrategia a la operación.",
-      },
-      {
-        title: "Open Finance & regulación",
-        text: "Lectura regulatoria, consentimiento, iniciación de pagos y nuevos modelos de negocio en finanzas abiertas.",
+        title: "Pagos & Open Finance",
+        text: "Medios de pago, wallets, prepago, adquirencia, pasarelas y procesamiento, con lectura regulatoria de consentimiento, iniciación de pagos y finanzas abiertas.",
       },
       {
         title: "Estrategia de producto",
@@ -46,13 +42,6 @@ export const siteContent = {
         text: "Incorporación de IA en discovery, research y toma de decisiones sin perder criterio estratégico.",
       },
     ],
-  },
-  casesTeaser: {
-    eyebrow: "Experiencia destacada",
-    title: {
-      lead: "Casos donde estrategia, producto",
-      strong: "y tecnología se encuentran.",
-    },
   },
   manifesto: {
     title: {
