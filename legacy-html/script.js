@@ -41,7 +41,7 @@ const renderCaseCard = (item, index) => `
           <dd>${escapeHtml(item.role)}</dd>
         </div>
         <div>
-          <dt>Que lidere</dt>
+          <dt>Qué lideré</dt>
           <dd>${escapeHtml(item.led)}</dd>
         </div>
         <div>
@@ -100,7 +100,7 @@ function renderPage() {
     <section class="section capabilities" aria-labelledby="capabilities-title">
       <div class="section-heading">
         <span>Capabilities</span>
-        <h2 id="capabilities-title">Donde puedo aportar criterio y ejecucion.</h2>
+        <h2 id="capabilities-title">Dónde puedo aportar criterio y ejecución.</h2>
       </div>
       <div class="capability-grid">
         ${content.whatIDo.capabilities.map(renderCapability).join("")}
@@ -120,7 +120,7 @@ function renderPage() {
     <section class="section work" id="work" aria-labelledby="work-title">
       <div class="section-heading">
         <span>Experiencia destacada</span>
-        <h2 id="work-title">Casos donde estrategia, producto y tecnologia se encuentran.</h2>
+        <h2 id="work-title">Casos donde estrategia, producto y tecnología se encuentran.</h2>
       </div>
       <div class="case-grid">
         ${content.cases.map(renderCaseCard).join("")}
@@ -130,7 +130,7 @@ function renderPage() {
     <section class="section ideas" id="ideas" aria-labelledby="ideas-title">
       <div class="section-heading">
         <span>Thought leadership</span>
-        <h2 id="ideas-title">Pensamiento e investigacion sobre evolucion financiera digital.</h2>
+        <h2 id="ideas-title">Pensamiento e investigación sobre evolución financiera digital.</h2>
       </div>
       <div class="filter-bar" aria-label="Filtrar publicaciones">
         ${content.articleTags
@@ -146,13 +146,13 @@ function renderPage() {
     </section>
 
     <section class="manifesto" aria-labelledby="manifesto-title">
-      <span>Vision</span>
+      <span>Visión</span>
       <h2 id="manifesto-title">${escapeHtml(content.manifesto.title)}</h2>
       <p>${escapeHtml(content.manifesto.text)}</p>
     </section>
 
     <section class="section about" aria-labelledby="bio-title">
-      <div class="section-label">Sobre mi</div>
+      <div class="section-label">Sobre mí</div>
       <div class="about-copy">
         <h2 id="bio-title">${escapeHtml(content.about.title)}</h2>
         <p>${escapeHtml(content.about.text)}</p>
