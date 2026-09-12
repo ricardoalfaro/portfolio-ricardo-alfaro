@@ -57,14 +57,37 @@ async function setupEditor() {
   const editor = document.querySelector("#post-form");
   const status = document.querySelector("#status");
   if (!isConfigured()) { status.textContent = "Completa personal-blog/supabase-config.js para activar el editor."; return; }
+  const showEditor = async (token) => {
+    const response = await api("/auth/v1/user", {}, token);
+    const user = response.ok ? await response.json() : null;
+    if (!user || user.email !== config.authorEmail) {
+      sessionStorage.removeItem("personalBlogToken");
+      status.textContent = "Esta cuenta no tiene permiso para publicar.";
+      return;
+    }
+    sessionStorage.setItem("personalBlogToken", token);
+    history.replaceState({}, document.title, location.pathname);
+    document.querySelector("#auth-panel").hidden = true;
+    editor.hidden = false;
+  };
   const token = accessToken();
-  if (token) { sessionStorage.setItem("personalBlogToken", token); history.replaceState({}, document.title, location.pathname); document.querySelector("#auth-panel").hidden = true; editor.hidden = false; }
+  if (token) await showEditor(token);
   login.addEventListener("submit", async event => {
     event.preventDefault();
-    const email = new FormData(login).get("email");
-    status.textContent = "Enviando enlace…";
-    const response = await api("/auth/v1/otp", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, options: { emailRedirectTo: location.href } }) });
-    status.textContent = response.ok ? "Revisa tu correo y vuelve mediante el enlace." : "No se pudo enviar el enlace.";
+    const fields = new FormData(login);
+    const email = fields.get("email").trim().toLowerCase();
+    const password = fields.get("password");
+    const action = event.submitter?.dataset.action;
+    if (email !== config.authorEmail) { status.textContent = "Este correo no tiene permiso para crear acceso."; return; }
+    status.textContent = action === "sign-up" ? "Creando acceso…" : "Entrando…";
+    const path = action === "sign-up" ? "/auth/v1/signup" : "/auth/v1/token?grant_type=password";
+    const response = await api(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password }) });
+    const data = await response.json();
+    if (!response.ok || !data.access_token) {
+      status.textContent = data.msg || data.message || "No fue posible completar el acceso. Si ya creaste tu cuenta, usa Entrar.";
+      return;
+    }
+    await showEditor(data.access_token);
   });
   editor.addEventListener("submit", async event => {
     event.preventDefault();

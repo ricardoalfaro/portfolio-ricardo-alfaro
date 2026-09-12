@@ -42,9 +42,11 @@ Los posts se leen en URLs individuales del tipo `/personal-blog/post/?slug=mi-no
 Para que el formulario publique realmente, crea un proyecto de Supabase y:
 
 1. Ejecuta [`personal-blog/supabase-schema.sql`](personal-blog/supabase-schema.sql) en el SQL Editor, reemplazando el correo autorizado antes de ejecutarlo.
-2. En Authentication activa Magic Link e ingresa ese correo una vez desde `/personal-blog/newpost/`.
+2. En Authentication → Sign In / Providers, deja activo Email y desactiva Confirm email. El editor usa una contraseña y no depende de la entrega de correos.
 3. En Authentication → URL Configuration, agrega `https://tu-dominio/personal-blog/newpost/` como Redirect URL (y tu URL local si harás pruebas).
 4. Agrega la URL del proyecto y su clave publishable en `personal-blog/supabase-config.js`. Este archivo se publica porque contiene únicamente valores públicos. Nunca uses una clave `service_role` o `sb_secret_…`.
+
+En `/personal-blog/newpost/`, usa el correo autorizado y una contraseña de al menos 12 caracteres. Elige **Crear acceso** solo la primera vez; después usa **Entrar**.
 
 El blog incluye `noindex` y una regla en `robots.txt`, pero eso evita indexación, no restringe el acceso: quien conozca una URL podrá leerla.
 

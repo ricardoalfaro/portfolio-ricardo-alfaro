@@ -15,11 +15,16 @@
       </header>
       <section id="auth-panel" class="auth-panel" aria-labelledby="auth-title">
         <h2 id="auth-title">Acceso de autor</h2>
-        <p>Te enviaremos un enlace de acceso a tu correo.</p>
+        <p>Usa tu correo y contraseña para escribir una nota.</p>
         <form id="login-form" class="stack-form">
           <label for="email">Correo</label>
           <input id="email" name="email" type="email" autocomplete="email" required>
-          <button type="submit">Enviar enlace</button>
+          <label for="password">Contraseña</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" minlength="12" required>
+          <div class="auth-actions">
+            <button type="submit" data-action="sign-in">Entrar</button>
+            <button type="submit" class="secondary-button" data-action="sign-up">Crear acceso</button>
+          </div>
         </form>
       </section>
       <form id="post-form" class="stack-form" hidden>
