@@ -1,9 +1,13 @@
 const config = window.personalBlogConfig || {};
 const isConfigured = () => config.url && config.publishableKey && !config.url.includes("TU_");
-const api = (path, options = {}, token = config.publishableKey) =>
+const api = (path, options = {}, token = null) =>
   fetch(`${config.url}${path}`, {
     ...options,
-    headers: { apikey: config.publishableKey, Authorization: `Bearer ${token}`, ...(options.headers || {}) },
+    headers: {
+      apikey: config.publishableKey,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(options.headers || {}),
+    },
   });
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "'":"&#039;", '"':"&quot;" })[char]);
 const formatDate = (date) => new Intl.DateTimeFormat("es-CL", { dateStyle: "long" }).format(new Date(date));
