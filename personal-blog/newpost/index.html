@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Nueva nota</title>
+    <link rel="stylesheet" href="/personal-blog/blog.css">
+  </head>
+  <body>
+    <main class="blog-shell editor-shell">
+      <header class="blog-header compact">
+        <p class="eyebrow">Archivo personal</p>
+        <h1>Nueva nota</h1>
+      </header>
+      <section id="auth-panel" class="auth-panel" aria-labelledby="auth-title">
+        <h2 id="auth-title">Acceso de autor</h2>
+        <p>Te enviaremos un enlace de acceso a tu correo.</p>
+        <form id="login-form" class="stack-form">
+          <label for="email">Correo</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <button type="submit">Enviar enlace</button>
+        </form>
+      </section>
+      <form id="post-form" class="stack-form" hidden>
+        <label for="title">Título</label>
+        <input id="title" name="title" maxlength="160" required>
+        <label for="body">Cuerpo</label>
+        <textarea id="body" name="body" rows="16" required></textarea>
+        <button type="submit">Publicar nota</button>
+      </form>
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+    <script src="/personal-blog/supabase-config.js"></script>
+    <script src="/personal-blog/blog.js"></script>
+  </body>
+</html>

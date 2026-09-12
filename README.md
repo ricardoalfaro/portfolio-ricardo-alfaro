@@ -34,6 +34,20 @@ Los textos principales están en `content.js`. Para actualizar el perfil, convie
 - El método de trabajo.
 - El correo de contacto.
 
+## Blog personal
+
+El blog no está enlazado desde el home y se accede directamente en `/personal-blog/`.
+Los posts se leen en URLs individuales del tipo `/personal-blog/post/?slug=mi-nota` y se escriben en `/personal-blog/newpost/`.
+
+Para que el formulario publique realmente, crea un proyecto de Supabase y:
+
+1. Ejecuta [`personal-blog/supabase-schema.sql`](personal-blog/supabase-schema.sql) en el SQL Editor, reemplazando el correo autorizado antes de ejecutarlo.
+2. En Authentication activa Magic Link e ingresa ese correo una vez desde `/personal-blog/newpost/`.
+3. En Authentication → URL Configuration, agrega `https://tu-dominio/personal-blog/newpost/` como Redirect URL (y tu URL local si harás pruebas).
+4. Agrega la URL del proyecto y su clave publishable en `personal-blog/supabase-config.js`. Este archivo se publica porque contiene únicamente valores públicos. Nunca uses una clave `service_role` o `sb_secret_…`.
+
+El blog incluye `noindex` y una regla en `robots.txt`, pero eso evita indexación, no restringe el acceso: quien conozca una URL podrá leerla.
+
 ## Notas
 
 Esta versión no requiere instalación de dependencias ni proceso de build.
