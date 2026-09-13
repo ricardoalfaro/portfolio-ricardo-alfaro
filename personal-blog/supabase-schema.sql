@@ -11,10 +11,16 @@ alter table public.personal_posts enable row level security;
 revoke all on table public.personal_posts from anon, authenticated;
 grant select on table public.personal_posts to anon, authenticated;
 grant insert on table public.personal_posts to authenticated;
+grant update on table public.personal_posts to authenticated;
 
 create policy "Las notas son públicas para lectura"
 on public.personal_posts for select to anon, authenticated using (true);
 
 create policy "Solo el autor publica notas"
 on public.personal_posts for insert to authenticated
+with check ((select auth.jwt() ->> 'email') = 'ricardoalfarog@gmail.com');
+
+create policy "Solo el autor edita notas"
+on public.personal_posts for update to authenticated
+using ((select auth.jwt() ->> 'email') = 'ricardoalfarog@gmail.com')
 with check ((select auth.jwt() ->> 'email') = 'ricardoalfarog@gmail.com');

@@ -42,13 +42,80 @@ async function renderPost() {
     const post = posts[0];
     if (!post) { target.innerHTML = "<p class=\"muted\">No se encontró esta nota.</p>"; return; }
     document.title = `${post.title} — Notas personales`;
-    target.innerHTML = `<header><p class="eyebrow">Archivo personal</p><h1>${escapeHtml(post.title)}</h1><time class="post-date" datetime="${post.published_at}">${formatDate(post.published_at)}</time></header><div class="post-body">${escapeHtml(post.body)}</div>`;
+    target.innerHTML = `<header><p class="eyebrow">Archivo personal</p><h1>${escapeHtml(post.title)}</h1><time class="post-date" datetime="${post.published_at}">${formatDate(post.published_at)}</time><button id="edit-post" class="edit-button" type="button">Editar nota</button></header><div class="post-body">${escapeHtml(post.body)}</div>`;
+    setupPostEditing(post);
   } catch (error) { target.innerHTML = `<p class="muted">${escapeHtml(error.message)}</p>`; }
 }
 
 function accessToken() {
   const hash = new URLSearchParams(location.hash.slice(1));
   return hash.get("access_token") || sessionStorage.getItem("personalBlogToken");
+}
+
+async function authorToken() {
+  const token = accessToken();
+  if (!token) return null;
+  const response = await api("/auth/v1/user", {}, token);
+  const user = response.ok ? await response.json() : null;
+  if (!user || user.email !== config.authorEmail) {
+    sessionStorage.removeItem("personalBlogToken");
+    return null;
+  }
+  sessionStorage.setItem("personalBlogToken", token);
+  return token;
+}
+
+function setupPostEditing(post) {
+  const editButton = document.querySelector("#edit-post");
+  const authModal = document.querySelector("#auth-modal");
+  const editModal = document.querySelector("#edit-modal");
+  const login = document.querySelector("#modal-login-form");
+  const editor = document.querySelector("#edit-form");
+  if (!editButton || !authModal || !editModal || !login || !editor) return;
+  const authStatus = document.querySelector("#modal-auth-status");
+  const editStatus = document.querySelector("#edit-status");
+  const openEditor = () => {
+    editor.elements.title.value = post.title;
+    editor.elements.body.value = post.body;
+    editStatus.textContent = "";
+    if (!editModal.open) editModal.showModal();
+  };
+  document.querySelectorAll("[data-close-modal]").forEach(button => button.addEventListener("click", () => button.closest("dialog").close()));
+  editButton.addEventListener("click", () => {
+    authStatus.textContent = "";
+    login.elements.email.value = config.authorEmail || "";
+    if (!authModal.open) authModal.showModal();
+    document.querySelector("#modal-password").focus();
+  });
+  login.addEventListener("submit", async event => {
+    event.preventDefault();
+    const fields = new FormData(login);
+    const email = fields.get("email").trim().toLowerCase();
+    const password = fields.get("password");
+    if (email !== config.authorEmail) { authStatus.textContent = "Esta cuenta no tiene permiso para editar."; return; }
+    authStatus.textContent = "Entrando…";
+    const response = await api("/auth/v1/token?grant_type=password", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password }) });
+    const data = await response.json();
+    if (!response.ok || !data.access_token) { authStatus.textContent = data.msg || data.message || "No fue posible ingresar."; return; }
+    sessionStorage.setItem("personalBlogToken", data.access_token);
+    authModal.close();
+    login.reset();
+    openEditor();
+  });
+  editor.addEventListener("submit", async event => {
+    event.preventDefault();
+    const fields = new FormData(editor);
+    const title = fields.get("title").trim();
+    const body = fields.get("body").trim();
+    editStatus.textContent = "Guardando…";
+    const token = await authorToken();
+    if (!token) { editModal.close(); authModal.showModal(); return; }
+    const response = await api(`/rest/v1/personal_posts?slug=eq.${encodeURIComponent(post.slug)}`, { method: "PATCH", headers: { "Content-Type": "application/json", Prefer: "return=representation" }, body: JSON.stringify({ title, body }) }, token);
+    const data = await response.json();
+    if (!response.ok || !data[0]) { editStatus.textContent = data.message || "No fue posible guardar los cambios."; return; }
+    editModal.close();
+    location.reload();
+  });
 }
 
 async function setupEditor() {

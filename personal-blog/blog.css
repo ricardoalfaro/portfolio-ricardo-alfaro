@@ -32,5 +32,14 @@ button:hover { background: #244582; }
 .reading-shell h1 { margin-bottom: 12px; }
 .post-date { color: var(--muted); font: 13px/1.3 ui-sans-serif, system-ui, sans-serif; }
 .post-body { margin-top: 34px; white-space: pre-wrap; }
+.edit-button { margin-top: 24px; }
+.modal { width: min(100% - 32px, 680px); max-height: min(100% - 48px, 880px); padding: 0; border: 0; border-radius: 8px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 70px rgba(15,23,42,.26); }
+.modal::backdrop { background: rgba(15,23,42,.6); }
+.modal-card { padding: 28px; overflow: auto; }
+.modal-card p { margin: 0; color: var(--muted); }
+.modal-heading { display: flex; align-items: start; justify-content: space-between; gap: 20px; }
+.modal-heading h2 { margin: 0; }
+.icon-button { min-width: 36px; min-height: 36px; margin: -8px -8px 0 0; padding: 0; border: 1px solid var(--line); background: transparent; color: var(--ink); font: 24px/1 sans-serif; }
+.icon-button:hover { background: var(--wash); color: var(--ink); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 @media (max-width: 560px) { .blog-shell { width: min(100% - 32px, 720px); padding-top: 48px; } body { font-size: 17px; } }
