@@ -3,6 +3,7 @@ const formatDate = (date) => new Intl.DateTimeFormat("es-CL", { dateStyle: "long
 
 async function getPosts(slug = "") {
   const url = new URL("/api/personal-blog", location.origin);
+  url.searchParams.set("reader", "rich-1");
   if (slug) url.searchParams.set("slug", slug);
   const response = await fetch(url);
   if (!response.ok) throw new Error("No fue posible cargar las notas.");
