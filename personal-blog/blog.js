@@ -1,28 +1,12 @@
-const config = window.personalBlogDriveConfig || {};
-const isConfigured = () => config.endpoint && !config.endpoint.includes("TU_");
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "'":"&#039;", '"':"&quot;" })[char]);
 const formatDate = (date) => new Intl.DateTimeFormat("es-CL", { dateStyle: "long" }).format(new Date(date));
 
-function getPosts(slug = "") {
-  return new Promise((resolve, reject) => {
-    if (!isConfigured()) { reject(new Error("El lector de Google Drive todavía no está conectado.")); return; }
-    const callback = `personalBlogCallback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-    const url = new URL(config.endpoint);
-    url.searchParams.set("callback", callback);
-    if (slug) url.searchParams.set("slug", slug);
-    const script = document.createElement("script");
-    const timeout = setTimeout(() => done(new Error("La carga de las notas tardó demasiado.")), 15000);
-    const done = (value) => {
-      clearTimeout(timeout);
-      delete window[callback];
-      script.remove();
-      value instanceof Error ? reject(value) : resolve(value);
-    };
-    window[callback] = (data) => done(data);
-    script.onerror = () => done(new Error("No fue posible cargar las notas."));
-    script.src = url.toString();
-    document.head.append(script);
-  });
+async function getPosts(slug = "") {
+  const url = new URL("/api/personal-blog", location.origin);
+  if (slug) url.searchParams.set("slug", slug);
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("No fue posible cargar las notas.");
+  return response.json();
 }
 
 async function renderIndex() {

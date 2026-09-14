@@ -41,7 +41,7 @@ Los posts se leen en URLs individuales del tipo `/personal-blog/post/?slug=mi-no
 
 Las notas se publican desde la carpeta de Google Drive **Blog publicado**. Cada Documento de Google dentro de esa carpeta se muestra como una entrada: el nombre del archivo es el título y el contenido del Doc es el cuerpo. Los cambios se reflejan al recargar el sitio.
 
-En `/personal-blog/newpost/` hay un enlace directo a la carpeta. El endpoint de Apps Script utiliza solamente el permiso `drive.readonly`, por lo que puede leer los documentos pero no editarlos, crearlos ni borrarlos. `personal-blog/drive-config.js` contiene la URL pública de ese endpoint, no una credencial.
+En `/personal-blog/newpost/` hay un enlace directo a la carpeta. El endpoint de Apps Script utiliza solamente permisos de lectura: puede leer y exportar los documentos, pero no editarlos, crearlos ni borrarlos. El sitio consulta ese endpoint a través de una función del servidor para evitar bloqueos de extensiones o navegadores.
 
 El blog incluye `noindex` y una regla en `robots.txt`, pero eso evita indexación, no restringe el acceso: quien conozca una URL podrá leerla.
 
