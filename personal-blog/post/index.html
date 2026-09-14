@@ -12,36 +12,7 @@
       <a class="back-link" href="/personal-blog/">← Todas las notas</a>
       <article id="post" aria-live="polite"><p class="muted">Cargando nota…</p></article>
     </main>
-    <dialog id="auth-modal" class="modal" aria-labelledby="auth-modal-title">
-      <form id="modal-login-form" class="stack-form modal-card" method="dialog">
-        <div class="modal-heading">
-          <h2 id="auth-modal-title">Editar nota</h2>
-          <button class="icon-button" type="button" data-close-modal aria-label="Cerrar">×</button>
-        </div>
-        <p>Ingresa con tu cuenta de autor para continuar.</p>
-        <label for="modal-email">Correo</label>
-        <input id="modal-email" name="email" type="email" autocomplete="email" required>
-        <label for="modal-password">Contraseña</label>
-        <input id="modal-password" name="password" type="password" autocomplete="current-password" minlength="12" required>
-        <button type="submit">Entrar y editar</button>
-        <p id="modal-auth-status" class="status" aria-live="polite"></p>
-      </form>
-    </dialog>
-    <dialog id="edit-modal" class="modal" aria-labelledby="edit-modal-title">
-      <form id="edit-form" class="stack-form modal-card" method="dialog">
-        <div class="modal-heading">
-          <h2 id="edit-modal-title">Editar nota</h2>
-          <button class="icon-button" type="button" data-close-modal aria-label="Cerrar">×</button>
-        </div>
-        <label for="edit-title">Título</label>
-        <input id="edit-title" name="title" maxlength="160" required>
-        <label for="edit-body">Cuerpo</label>
-        <textarea id="edit-body" name="body" rows="16" required></textarea>
-        <button type="submit">Guardar cambios</button>
-        <p id="edit-status" class="status" aria-live="polite"></p>
-      </form>
-    </dialog>
-    <script src="/personal-blog/supabase-config.js"></script>
-    <script src="/personal-blog/blog.js?v=3b28c46"></script>
+    <script src="/personal-blog/drive-config.js"></script>
+    <script src="/personal-blog/blog.js?v=drive-1"></script>
   </body>
 </html>

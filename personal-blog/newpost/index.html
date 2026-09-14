@@ -11,32 +11,13 @@
     <main class="blog-shell editor-shell">
       <header class="blog-header compact">
         <p class="eyebrow">Archivo personal</p>
-        <h1>Nueva nota</h1>
+        <h1>Publicar una nota</h1>
       </header>
-      <section id="auth-panel" class="auth-panel" aria-labelledby="auth-title">
-        <h2 id="auth-title">Acceso de autor</h2>
-        <p>Usa tu correo y contraseña para escribir una nota.</p>
-        <form id="login-form" class="stack-form">
-          <label for="email">Correo</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
-          <label for="password">Contraseña</label>
-          <input id="password" name="password" type="password" autocomplete="current-password" minlength="12" required>
-          <div class="auth-actions">
-            <button type="submit" data-action="sign-in">Entrar</button>
-            <button type="submit" class="secondary-button" data-action="sign-up">Crear acceso</button>
-          </div>
-        </form>
+      <section class="auth-panel" aria-labelledby="publish-title">
+        <h2 id="publish-title">Desde Google Docs</h2>
+        <p>Crea o mueve un Documento de Google a la carpeta <strong>Blog publicado</strong>. El título del documento será el título de la nota y el cuerpo se actualizará cada vez que edites el Doc.</p>
+        <p><a href="https://drive.google.com/drive/folders/1euKClYEJkU3Ya2pxvmwsmniaTJK-cCrm" target="_blank" rel="noopener">Abrir carpeta Blog publicado →</a></p>
       </section>
-      <form id="post-form" class="stack-form" hidden>
-        <label for="title">Título</label>
-        <input id="title" name="title" maxlength="160" required>
-        <label for="body">Cuerpo</label>
-        <textarea id="body" name="body" rows="16" required></textarea>
-        <button type="submit">Publicar nota</button>
-      </form>
-      <p id="status" class="status" aria-live="polite"></p>
     </main>
-    <script src="/personal-blog/supabase-config.js"></script>
-    <script src="/personal-blog/blog.js?v=3b28c46"></script>
   </body>
 </html>
