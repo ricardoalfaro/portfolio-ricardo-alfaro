@@ -39,14 +39,9 @@ Los textos principales están en `content.js`. Para actualizar el perfil, convie
 El blog no está enlazado desde el home y se accede directamente en `/personal-blog/`.
 Los posts se leen en URLs individuales del tipo `/personal-blog/post/?slug=mi-nota` y se escriben en `/personal-blog/newpost/`.
 
-Para que el formulario publique realmente, crea un proyecto de Supabase y:
+Las notas se publican desde la carpeta de Google Drive **Blog publicado**. Cada Documento de Google dentro de esa carpeta se muestra como una entrada: el nombre del archivo es el título y el contenido del Doc es el cuerpo. Los cambios se reflejan al recargar el sitio.
 
-1. Ejecuta [`personal-blog/supabase-schema.sql`](personal-blog/supabase-schema.sql) en el SQL Editor, reemplazando el correo autorizado antes de ejecutarlo.
-2. En Authentication → Sign In / Providers, deja activo Email y desactiva Confirm email. El editor usa una contraseña y no depende de la entrega de correos.
-3. En Authentication → URL Configuration, agrega `https://tu-dominio/personal-blog/newpost/` como Redirect URL (y tu URL local si harás pruebas).
-4. Agrega la URL del proyecto y su clave publishable en `personal-blog/supabase-config.js`. Este archivo se publica porque contiene únicamente valores públicos. Nunca uses una clave `service_role` o `sb_secret_…`.
-
-En `/personal-blog/newpost/`, usa el correo autorizado y una contraseña de al menos 12 caracteres. Elige **Crear acceso** solo la primera vez; después usa **Entrar**.
+En `/personal-blog/newpost/` hay un enlace directo a la carpeta. El endpoint de Apps Script utiliza solamente el permiso `drive.readonly`, por lo que puede leer los documentos pero no editarlos, crearlos ni borrarlos. `personal-blog/drive-config.js` contiene la URL pública de ese endpoint, no una credencial.
 
 El blog incluye `noindex` y una regla en `robots.txt`, pero eso evita indexación, no restringe el acceso: quien conozca una URL podrá leerla.
 
