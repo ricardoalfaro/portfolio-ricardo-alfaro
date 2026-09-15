@@ -31,7 +31,7 @@ async function renderPost() {
     const post = await getPosts(slug);
     if (!post) { target.innerHTML = "<p class=\"muted\">No se encontró esta nota.</p>"; return; }
     document.title = `${post.title} — Notas personales`;
-    target.innerHTML = `<header><p class="eyebrow">Archivo personal</p><h1>${escapeHtml(post.title)}</h1><time class="post-date" datetime="${post.published_at}">${formatDate(post.published_at)}</time></header><div class="post-body rich-body">${post.body_html}</div>`;
+    target.innerHTML = `<header><p class="eyebrow">Archivo.</p><h1>${escapeHtml(post.title)}</h1><time class="post-date" datetime="${post.published_at}">${formatDate(post.published_at)}</time></header><div class="post-body rich-body">${post.body_html}</div>`;
   } catch (error) { target.innerHTML = `<p class="muted">${escapeHtml(error.message)}</p>`; }
 }
 

@@ -27,14 +27,15 @@ button:hover { background: #244582; }
 .auth-panel { margin-bottom: 28px; padding: 22px; border: 1px solid var(--line); background: rgba(255,255,255,.65); }
 .auth-panel h2, .auth-panel p { margin-top: 0; }
 .status { min-height: 1.6em; margin-top: 20px; }
+.post-nav { padding: 16px clamp(20px, 5vw, 72px); background: #fcfcfb; }
 .back-link { color: var(--accent); font: 14px/1.4 ui-sans-serif, system-ui, sans-serif; text-decoration: none; }
 .reading-shell article { margin-top: 42px; }
-.reading-shell h1 { margin-bottom: 12px; }
+.reading-shell > article > header h1 { margin-bottom: 12px; font-family: "Fira Sans", ui-sans-serif, system-ui, sans-serif; font-size: 2em; text-transform: uppercase; }
 .post-date { color: var(--muted); font: 13px/1.3 ui-sans-serif, system-ui, sans-serif; }
-.post-body { margin-top: 34px; white-space: pre-wrap; }
+.post-body { margin-top: 34px; padding-top: 50px; border-top: 3px solid #000; white-space: pre-wrap; }
 .rich-body { white-space: normal; }
 .rich-body p, .rich-body ul, .rich-body ol, .rich-body blockquote { margin: 0 0 1.2rem; }
-.rich-body h1, .rich-body h2, .rich-body h3 { margin: 2rem 0 .8rem; line-height: 1.2; }
+.rich-body h1, .rich-body h2, .rich-body h3 { margin: 2rem 0 .8rem; font-family: "Fira Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.2; }
 .rich-body a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .18em; }
 .edit-button { margin-top: 24px; }
 .modal { width: min(100% - 32px, 680px); max-height: min(100% - 48px, 880px); padding: 0; border: 0; border-radius: 8px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 70px rgba(15,23,42,.26); }
@@ -46,4 +47,4 @@ button:hover { background: #244582; }
 .icon-button { min-width: 36px; min-height: 36px; margin: -8px -8px 0 0; padding: 0; border: 1px solid var(--line); background: transparent; color: var(--ink); font: 24px/1 sans-serif; }
 .icon-button:hover { background: var(--wash); color: var(--ink); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-@media (max-width: 560px) { .blog-shell { width: min(100% - 32px, 720px); padding-top: 48px; } body { font-size: 17px; } }
+@media (max-width: 560px) { .blog-shell { width: min(100% - 32px, 720px); padding-top: 48px; } .post-nav { padding-inline: 20px; } body { font-size: 17px; } }
