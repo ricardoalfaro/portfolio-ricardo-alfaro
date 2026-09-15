@@ -10,8 +10,10 @@ body { margin: 0; background: var(--wash); color: var(--ink); font: 18px/1.65 Ge
 .publication-list { display: grid; gap: .06em; padding: 0; list-style: none; font-size: clamp(4rem, 12vw, 10.5rem); line-height: .85; }
 .publication-list a { color: inherit; text-decoration: none; }
 .publication-list a:hover, .publication-list a:focus { color: var(--accent); }
-.notes-layout { display: grid; grid-template-columns: minmax(220px, .85fr) minmax(300px, 1.35fr); align-items: center; gap: clamp(40px, 9vw, 160px); }
+.notes-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.35fr); align-items: center; gap: clamp(40px, 9vw, 160px); }
+.notes-title, .notes-list-panel { min-width: 0; }
 .notes-title h1 { font-size: clamp(4.5rem, 13vw, 11rem); line-height: .82; }
+.notes-title.title-fit h1 { font-size: clamp(3.5rem, 5.8vw, 6.5rem); }
 .eyebrow { margin: 0 0 12px; color: var(--muted); font: 600 12px/1.2 ui-sans-serif, system-ui, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
 .notes-list-panel { align-self: center; max-height: calc(100vh - 160px); overflow: auto; }
 .post-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
