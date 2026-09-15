@@ -18,7 +18,7 @@ async function renderIndex() {
     const posts = await getPosts();
     loading.remove();
     if (!posts.length) { list.innerHTML = "<li class=\"muted\">Aún no hay notas.</li>"; return; }
-    list.innerHTML = posts.map(post => `<li><a href="/personal-blog/post/?slug=${encodeURIComponent(post.slug)}">${escapeHtml(post.title)}<time datetime="${post.published_at}">${formatDate(post.published_at)}</time></a></li>`).join("");
+    list.innerHTML = posts.map(post => `<li><a href="/publicaciones/notas/post/?slug=${encodeURIComponent(post.slug)}">${escapeHtml(post.title)}<time datetime="${post.published_at}">${formatDate(post.published_at)}</time></a></li>`).join("");
   } catch (error) { loading.textContent = error.message; }
 }
 
